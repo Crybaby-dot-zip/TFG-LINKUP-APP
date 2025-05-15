@@ -9,25 +9,43 @@
     rel="stylesheet"
   />
   <style>
-    
+    @font-face {
+      font-family: 'SF Pro';
+      src: url('/fonts/SF-Pro-Display-Regular.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'SF Pro';
+      src: url('/fonts/SF-Pro-Display-Bold.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'SF Pro';
+      src: url('/fonts/SF-Pro-Display-Black.woff2') format('woff2');
+      font-weight: 900;
+      font-style: normal;
+    }
+
     body {
       background-color: #ffffff;
       color: #000000;
-      font-family: 'SF Pro', -apple-system, BlinkMacSystemFont;
+      font-family: 'SF Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
 
-
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 900;
     }
 
     .accent {
       color: #000000;
     }
-    
-    h1, h2, h3, h4, h5, h6 {
-   font-weight: 900; /* Usa 700 si prefieres Bold */
-    }
 
     .bg-accent {
-      background-color: #000000;
+      background-color: #f1c40f;
       color: #000;
     }
 
@@ -35,7 +53,6 @@
       width: 80px;
       height: 45px;
       object-fit: cover;
-      border-radius: 0px;
     }
 
     section {
@@ -57,22 +74,6 @@
       height: 100%;
     }
 
-    .video-fullscreen {
-  width: 100vw;
-  max-width: 100%;
-  overflow: hidden;
-  position: relative;
-  aspect-ratio: 16/9;
-}
-
-.video-fullscreen video {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-
     .footer a {
       color: #ffffff;
       text-decoration: none;
@@ -80,6 +81,22 @@
 
     .footer a:hover {
       text-decoration: underline;
+    }
+
+    .carousel,
+    .carousel-inner,
+    .carousel-item {
+      height: 100%;
+    }
+
+    .object-fit-cover {
+      object-fit: cover;
+    }
+
+    
+    #info1 p, #info2 p {
+      font-size: 1.25rem;
+      line-height: 1.6;
     }
   </style>
 </head>
@@ -110,34 +127,49 @@
   </nav>
 
   <!-- Video Section -->
-<section id="video" class="p-0 m-0">
-  <div class="video-fullscreen">
-    <video autoplay muted loop playsinline class="w-100 h-auto">
-      <source src="mp4/promotion.mp4" type="video/mp4" />
-      Tu navegador no soporta la reproducción de video.
-    </video>
-  </div>
-</section>
-
+  <section id="video" class="bg-light p-0 m-0">
+    <div class="video-container">
+      <iframe
+        src="mp4/promotion.mp4"
+        title="LinkUp Promo"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </section>
 
   <!-- Info Section 1 -->
   <section id="info1">
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-md-6">
-          <img
-            src="img/REVISTA.png"
-            alt="Funcionalidades"
-            class="img-fluid rounded"
-          />
+        <div class="col-md-6 h-100">
+          <div id="carouselInfo1" class="carousel slide h-100" data-bs-ride="carousel" data-bs-interval="4000">
+            <div class="carousel-inner h-100">
+              <div class="carousel-item active h-100">
+                <img src="img/slider1.png" class="d-block w-100 h-100 object-fit-cover rounded" alt="Slide 1" />
+              </div>
+              <div class="carousel-item h-100">
+                <img src="img/slider2.png" class="d-block w-100 h-100 object-fit-cover rounded" alt="Slide 2" />
+              </div>
+              <div class="carousel-item h-100">
+                <img src="img/slider3.png" class="d-block w-100 h-100 object-fit-cover rounded" alt="Slide 3" />
+              </div>
+              <div class="carousel-item h-100">
+                <img src="img/slider4.png" class="d-block w-100 h-100 object-fit-cover rounded" alt="Slide 4" />
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-md-6">
-          <h3 class="accent">Conecta sin límites</h3>
-          <p>
-            LinkUp te permite unir jugadores de todas las plataformas y países.
-            Interfaz intuitiva, bibliotecas personalizadas, chats en tiempo real
-            y mucho más.
-          </p>
+        <div class="col-md-6 d-flex align-items-center">
+          <div class="ms-md-4">
+            <h3 class="accent">CONECTA SIN LÍMITES</h3>
+            <p>
+              LinkUp te permite unir jugadores de todas las plataformas y países.
+              Interfaz intuitiva, bibliotecas personalizadas, chats en tiempo real
+              y mucho más. Comparte tus juegos favoritos y di que te parecen. Aquí 
+              todos tenemos voz.
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -147,38 +179,58 @@
   <section id="info2" class="bg-light">
     <div class="container">
       <div class="row align-items-center flex-md-row-reverse">
-        <div class="col-md-6">
-          <img
-            src="https://via.placeholder.com/600x400"
-            alt="Misión"
-            class="img-fluid rounded"
-          />
+        <div class="col-md-6 h-100">
+          <div id="carouselInfo2" class="carousel slide h-100" data-bs-ride="carousel" data-bs-interval="4000">
+            <div class="carousel-inner h-100">
+              <div class="carousel-item active h-100">
+                <img src="img/REVISTA.png" class="d-block w-100 h-100 object-fit-cover rounded" alt="Misión 1" />
+              </div>
+              <div class="carousel-item h-100">
+                <img src="img/sudadera.png" class="d-block w-100 h-100 object-fit-cover rounded" alt="Misión 2" />
+              </div>
+              <div class="carousel-item h-100">
+                <img src="img/peluche.png" class="d-block w-100 h-100 object-fit-cover rounded" alt="Misión 3" />
+              </div>
+              <div class="carousel-item h-100">
+                <img src="img/camisets.png" class="d-block w-100 h-100 object-fit-cover rounded" alt="Misión 4" />
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-md-6">
-          <h3 class="accent">Nuestra misión</h3>
-          <p>
-            Romper la guerra de consolas y fomentar la comunidad gamer con
-            respeto, inclusión y pasión por los videojuegos. LinkUp no es solo
-            una app, es un movimiento.
-          </p>
+        <div class="col-md-6 d-flex align-items-center">
+          <div class="me-md-4">
+            <h3 class="accent">LUCE LINK UP CON ORGULLO</h3>
+            <p>
+              Romper la guerra de consolas y fomentar la comunidad gamer con
+              respeto, inclusión y pasión por los videojuegos es nuestro objetivo. LinkUp no es solo
+              una app, es un movimiento. ¡Por eso eres libre de llevarlo a la moda, y no solo eso,
+              de leerlo gracias a nuestra revista!
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer id="contacto" class="bg-black text-white py-5 footer">
-    <div class="container text-center">
-      <h5 class="accent">Contáctanos</h5>
-      <p>Email: contacto@linkupapp.com</p>
-      <div class="d-flex justify-content-center gap-3 mt-3">
-        <a href="#" target="_blank">Instagram</a>
-        <a href="#" target="_blank">Twitter/X</a>
-        <a href="#" target="_blank">TikTok</a>
-      </div>
-      <p class="mt-4 small">&copy; 2025 LinkUp. Todos los derechos reservados.</p>
+<!-- Footer -->
+<footer id="contacto" class="bg-black text-white py-5 footer">
+  <div class="container text-center">
+    <p>Email: contacto@linkupapp.com</p>
+    <div class="d-flex justify-content-center gap-3 mt-3">
+      <a href="#" target="_blank" rel="noopener noreferrer">
+        <img src="img/insta@300x.png" alt="Instagram" />
+      </a>
+      <a href="#" target="_blank" rel="noopener noreferrer">
+        <img src="img/facebook@300x.png" alt="Facebook" />
+      </a>
+      <a href="#" target="_blank" rel="noopener noreferrer">
+        <img src="img/youtube@300x.png" alt="YouTube" />
+      </a>
     </div>
-  </footer>
+    <p class="mt-4 small">&copy; 2025 LinkUp. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
